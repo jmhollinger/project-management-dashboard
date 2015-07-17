@@ -1,0 +1,18 @@
+html, body {
+height: 100%;
+font-family: Montserrat; Helvetica, san-serif;
+}
+
+.container-fluid{
+height: 100%;
+padding: 0px;	
+}
+
+.legend{
+height: 100%;
+}
+
+#map-canvas { 
+height: 100%;
+}
+
