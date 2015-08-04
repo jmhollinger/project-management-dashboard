@@ -95,8 +95,6 @@ function initialize(){
                  }
              },
         tooltip: {
-          position: function (data, width, height, element) {
-              return {top: -20, left: 20}},
           format: {
               title: function (d) { return d; },
               value: function (value, ratio, id) {
@@ -132,8 +130,6 @@ function initialize(){
                  }
              },
         tooltip: {
-          position: function (data, width, height, element) {
-              return {top: -20, left: -20}},
           format: {
               title: function (d) { return d; },
               value: function (value, ratio, id) {
@@ -162,20 +158,3 @@ return Math.round(Math.abs(new Date() - new Date(StartDate))/86400000)
 function TotalDays (StartDate, EndDate){
 return Math.round(Math.abs(new Date(EndDate) - new Date(StartDate))/86400000)
 }
-
-$(document).ready(function(){
-$.ajax({
-    url: 'data/projects.geojson',
-    dataType: 'json',
-    success: function(data) {
-    $.each(data.features, function(key, value){
-      if (value.properties.Status === 'Progressing') {var status_button = "<p class=\"status good-status\">Progressing</p>"}
-      else if (value.properties.Status === 'Stalled') {var status_button = "<p class=\"status warning-status\">Stalled</p>"}
-      else if (value.properties.Status === 'Stopped') {var status_button = "<p class=\"status bad-status\">Stopped</p>"}
-      else {}
-
-    $("#project-tbody").append("<tr><td><p class=\"project-name\">" + value.properties.Project + "<p></td><td>" + status_button + "</td></tr>")
-  })
-
-    }});
-})

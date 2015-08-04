@@ -9,13 +9,14 @@
     <meta name="author" content="">
     <link rel="icon" href="">
 
-    <title>Project Management Dashboard</title>
+    <title>Project Dashboard</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 
     <!-- Custom styles for this template -->
-    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/c3.min.css">
     <link rel="stylesheet" href="css/custom.css">
     
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -27,46 +28,22 @@
 
   <body>
   <div class="container-fluid">
-        <div class="col-sm-3 legend">
-        <h3 class="">Project Dashboard</h3>
-        <table class="table table-striped">
-	      <caption>Projects</caption>
+        <div id="list" class="col-sm-3 legend">
+        <h3 class="title">Lexington Project Dashboard</h3>
+        <table class="table">
+	      <caption>Current Projects</caption>
 	      <thead>
 	        <tr>
-	          <th></th>
 	          <th>Project</th>
 	          <th>Status</th>
 	        </tr>
 	      </thead>
-	      <tbody>
-	        <tr class="success">
-	          <th scope="row">1</th>
-	          <td>Old Courthouse</td>
-	          <td>Progressing</td>
-	        </tr>
-	        <tr class="success">
-	          <th scope="row">2</th>
-	          <td>Town Branch Commons</td>
-	          <td>Progressing</td>
-	        </tr>
-	        <tr class="danger">
-	          <th scope="row">3</th>
-	          <td>Euclid Avenue Streetscape Design</td>
-	          <td>Stalled</td>
-	        </tr>
-	         <tr class="success">
-	          <th scope="row">4</th>
-	          <td>Southland Drive Sidewalk Design</td>
-	          <td>Progressing</td>
-	         </tr>
-	         <tr class="success">
-	          <th scope="row">5</th>
-	          <td>Code Enforcement Database Implementation</td>
-	          <td>Progressing</td>
-	         </tr>
+	      <tbody id="project-tbody">
 	      </tbody>
 	    </table>
-		  		</div>
+	     		</div>
+
+
       	<div id="map-canvas" class="col-md-9">
       	</div>
       	
@@ -78,5 +55,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDXqhUx3ZQwPBtAVsXg6tz9N_2yvrRydcQ&sensor=true&libraries=places"></script>
     <script src="js/map.js"></script>
+    <script src="js/d3.min.js"></script>
+    <script src="js/c3.min.js"></script>   
   </body>
 </html>

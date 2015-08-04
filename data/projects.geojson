@@ -1,0 +1,19 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+                                                                                
+"features": [
+
+{ "type": "Feature", "properties": { "join_id": 1, "Project": "Historic Courthouse", "Description": "Renovation of Historic Courthouse using historic preservation tax credits.", "Budget": 22000000, "Expense": 700000, "Status": "Progressing", "LastTask": "Advertise RFP for Design Services", "LastTaskDate": "07\/15\/2015", "Current": "Select Design Firm", "CurrentDueDate": "09\/01\/2015", "StartDate": "03\/01\/2015", "EndDate": "03\/01\/2018" }, 
+"geometry": { "type": "Point", "coordinates": [ -84.49779711953822, 38.04777625207084 ] } },
+
+{ "type": "Feature", "properties": { "join_id": 2, "Project": "Town Branch Commons", "Description": "Multi-modal greenway through downtown Lexington connecting regional trail systems.", "Budget": 10000000, "Expense": 500000, "Status": "Progressing", "LastTask": "Submit TIGER Grant", "LastTaskDate": "07\/01\/2015", "Current": "Private Fundraising", "CurrentDueDate": "12\/31\/2015", "StartDate": "04\/01\/2015", "EndDate": "12\/31\/2016" }, 
+"geometry": { "type": "Point", "coordinates": [ -84.496975589957586, 38.044568377286545 ] } },
+
+{ "type": "Feature", "properties": { "join_id": 3, "Project": "Euclid Avenue Streetscape", "Description": "Design of Streetscape on Euclid Avenue and Avenue of Champions.", "Budget": 350000, "Expense": 0, "Status": "Stalled", "LastTask": "Draft Scope", "LastTaskDate": "08\/01\/2015", "Current": "Advertise RFP for Design Services", "CurrentDueDate": "08\/15\/2015", "StartDate": "07\/01\/2015", "EndDate": "06\/31\/2016" }, 
+"geometry": { "type": "Point", "coordinates": [ -84.494955996405253, 38.033528440062916 ] } },
+
+{ "type": "Feature", "properties": { "join_id": 4, "Project": "Southland Drive Sidewalks", "Description": "Design of sidewalks on Southland Drive from Nicholasville Road to Rosemont Garden.", "Budget": 250000, "Expense": 0, "Status": "Stopped", "LastTask": "Draft Scope", "LastTaskDate": "08\/01\/2015", "Current": "Advertise RFP for Design Services", "CurrentDueDate": "08\/15\/2015", "StartDate": "07\/01\/2015", "EndDate": "06\/30\/2016" }, 
+"geometry": { "type": "Point", "coordinates": [ -84.523504149335281, 38.015623759446804 ] } }
+]
+}
