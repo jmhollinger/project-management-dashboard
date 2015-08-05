@@ -8,10 +8,6 @@ height: 100%;
 padding: 0px;	
 }
 
-.legend{
-height: 100%;
-}
-
 #map-canvas { 
 height: 100%;
 }
@@ -63,3 +59,14 @@ background-color: #5cb85c;
 .tight{
 	margin:0px;
 }
+
+.project-info{
+	padding:15px;
+	border-radius: 5px;
+	background-color: #fff;
+	z-index: 3;
+	position:fixed;
+	top: 20px;
+	right: 20px;
+}
+

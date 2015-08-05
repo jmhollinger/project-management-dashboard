@@ -1,7 +1,9 @@
+$(document).on('click', '#close-button', function () {
+$("#project-info").remove()
+})
+
 function initialize(){
 
-  var markers = [];
-  
   var mapOptions = {
     overviewMapControl:true,
     rotateControl:true,
@@ -23,6 +25,9 @@ function initialize(){
   
   map.fitBounds(defaultBounds);
 
+
+
+
   map.data.setStyle(function(feature) {
     var status = feature.getProperty('Status');
     if (status === 'Progressing') {var color = '#5cb85c'}
@@ -41,19 +46,22 @@ function initialize(){
 
   map.data.loadGeoJson('data/projects.geojson')
 
+
+
   var infowindow = new google.maps.InfoWindow();
 
   map.data.addListener('click', function(event) {
-
+      $('#myModal').modal('show');
 
       if (event.feature.getProperty('Status') === 'Progressing') {var status_button = "<p class=\"status good-status\">Project is Progressing</p>"}
       else if (event.feature.getProperty('Status') === 'Stalled') {var status_button = "<p class=\"status warning-status\">Project is Stalled</p>"}
       else if (event.feature.getProperty('Status') === 'Stopped') {var status_button = "<p class=\"status bad-status\">Project is Stopped</p>"}
       else {}  
 
-      infowindow.setContent(
-        "<h3>" + event.feature.getProperty('Project') + "</h3>" +
-        "<p>" + event.feature.getProperty('Description') + "</p>" +
+      $("#myModalLabel").html("<h3>" + event.feature.getProperty('Project') + "</h3>" +
+        "<p>" + event.feature.getProperty('Description') + "</p>")
+
+      $("#project").html(
         status_button +
         "<p class=\"tight\"><strong>Start Date: </strong>" + event.feature.getProperty('StartDate') + "</p>" +
         "<p class=\"tight\"><strong>End Date: </strong>" + event.feature.getProperty('EndDate') + "</p>" +
@@ -62,17 +70,13 @@ function initialize(){
         "<br>This task is due on " + event.feature.getProperty('CurrentDueDate') + "</p>" +
         "<p><strong>Last Task Completed: </strong>" + event.feature.getProperty('LastTask') +        
         "<br>This task was completed on " + event.feature.getProperty('LastTaskDate') + "</p>" +
-        "<div class=\"col-sm-6 chart\" id=\"budget-chart\"></div>" +
-        "<div class=\"col-sm-6 chart\" id=\"time-chart\"></div>"
+        "<div class=\"row\"><div class=\"col-sm-6 chart\" id=\"budget-chart\"></div>" +
+        "<div class=\"col-sm-6 chart\" id=\"time-chart\"></div></div>"
                 );
-
-
-      infowindow.setPosition(event.latLng)
-      infowindow.open(map);
 
       var budgetchart = c3.generate({
         padding: {
-          top: 5,
+          top: 10,
           right: 0,
           bottom: 0,
           left: 10,
@@ -95,9 +99,7 @@ function initialize(){
                  }
              },
         tooltip: {
-          position: function (data, width, height, element) {
-              return {top: -20, left: 20}},
-          format: {
+            format: {
               title: function (d) { return d; },
               value: function (value, ratio, id) {
                      return FormatCurrency(value) + " (" + parseFloat((ratio * 100).toFixed(2)) + '%)';
@@ -109,7 +111,7 @@ function initialize(){
 
       var timechart = c3.generate({
         padding: {
-          top: 5,
+          top: 10,
           right: 0,
           bottom: 0,
           left: 10,
@@ -122,18 +124,16 @@ function initialize(){
                 }, 
        data: {
          columns: [
-          ['Spent', DaysIn(event.feature.getProperty('StartDate'))],
+          ['Elapsed', DaysIn(event.feature.getProperty('StartDate'))],
           ['Remaining', TotalDays(event.feature.getProperty('StartDate'), event.feature.getProperty('EndDate')) - DaysIn(event.feature.getProperty('StartDate'))]
                 ],
          type : 'donut',
          colors: {
-            Spent: '#5cb85c',
+            Elapsed: '#5cb85c',
             Remaining: '#428bca',
                  }
              },
         tooltip: {
-          position: function (data, width, height, element) {
-              return {top: -20, left: -20}},
           format: {
               title: function (d) { return d; },
               value: function (value, ratio, id) {
@@ -162,6 +162,10 @@ return Math.round(Math.abs(new Date() - new Date(StartDate))/86400000)
 function TotalDays (StartDate, EndDate){
 return Math.round(Math.abs(new Date(EndDate) - new Date(StartDate))/86400000)
 }
+
+$("#close-button").click(function(){
+  console.log("Close!")
+})
 
 $(document).ready(function(){
 $.ajax({

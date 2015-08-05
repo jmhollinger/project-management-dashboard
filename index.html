@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 
     <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/c3.min.css">
     <link rel="stylesheet" href="css/custom.css">
@@ -27,8 +28,26 @@
   </head>
 
   <body>
-  <div class="container-fluid">
-        <div id="list" class="col-sm-3 legend">
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <div class="modal-title" id="myModalLabel"></div>
+      </div>
+      <div class="modal-body">
+       <div id="project"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div id="container" class="container-fluid">
+        <div class="col-md-3 legend">
         <h3 class="title">Lexington Project Dashboard</h3>
         <table class="table">
 	      <caption>Current Projects</caption>
@@ -41,11 +60,9 @@
 	      <tbody id="project-tbody">
 	      </tbody>
 	    </table>
-	     		</div>
-
-
-      	<div id="map-canvas" class="col-md-9">
-      	</div>
+	    </div>
+      	<div id="map-canvas" class="col-md-9"></div>
+      	
       	
   </div>
     <!-- Bootstrap core JavaScript
