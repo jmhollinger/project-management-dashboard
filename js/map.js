@@ -1,6 +1,3 @@
-$(document).on('click', '#close-button', function () {
-$("#project-info").remove()
-})
 
 function initialize(){
 
@@ -14,8 +11,6 @@ function initialize(){
     zoomControlOptions: {style: google.maps.ZoomControlStyle.DEFAULT}
     };
 
-
-
   var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
   var defaultBounds = new google.maps.LatLngBounds(
@@ -24,9 +19,6 @@ function initialize(){
       );
   
   map.fitBounds(defaultBounds);
-
-
-
 
   map.data.setStyle(function(feature) {
     var status = feature.getProperty('Status');
@@ -89,6 +81,9 @@ $.ajax({
 })
 
 function ShowProject (join_id) {
+
+ $('#myModal').modal('show');
+
 $.ajax({
     url: 'data/projects.geojson',
     dataType: 'json',
@@ -189,7 +184,7 @@ $.ajax({
         });
 
 
-    $('#myModal').modal('show');
+   
     }
 
 else {}
