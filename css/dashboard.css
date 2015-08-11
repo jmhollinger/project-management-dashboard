@@ -9,7 +9,9 @@ padding: 0px;
 }
 
 #map-canvas { 
-height: 100%;
+margin-right: 15px;
+margin-left: 15px;
+height: 50%;
 }
 
 .title{
@@ -24,33 +26,23 @@ text-align: center;
 }
 
 .project-name{
-padding: 5px;
+padding-top: 5px;
 }
 
+.project-name:hover{
+text-decoration: underline;
+}
 
 .good-status{
 background-color: #5cb85c;
-
 }
 
 .warning-status{
 background-color: #f0ad4e;
-
 }
 
 .bad-status{
 background-color: #d9534f;
-}
-
-
-.budget-container{
-width: 100%;
-border-radius: 5px;
-}
-
-.spent{
-height: 40px;
-background-color: #5cb85c; 	
 }
 
 .chart{
@@ -61,13 +53,10 @@ background-color: #5cb85c;
 	margin:0px;
 }
 
-.project-info{
-	padding:15px;
-	border-radius: 5px;
-	background-color: #fff;
-	z-index: 3;
-	position:fixed;
-	top: 20px;
-	right: 20px;
-}
 
+@media (min-width: 768px) {
+#map-canvas{
+margin: 0px;
+height: 100%;
+}
+}
